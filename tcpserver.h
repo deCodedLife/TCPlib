@@ -7,7 +7,7 @@
 #include "tcpconnection.h"
 
 
-class TCPServer : TCPConnection
+class TCPServer : public TCPConnection
 {
 public:
     TCPServer(TCPUser user);
@@ -15,7 +15,7 @@ public:
     void ListenAll();
     virtual void HandleMessages(TCPUser client);
 
-private:
+protected:
     TCPUser tcp_user;
     int tcp_binding;
     std::map<TCPUser*, std::thread*> handlers;
